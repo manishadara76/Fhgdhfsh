@@ -2,6 +2,7 @@ from config import Config
 from pyrogram import Client as bot, idle
 import asyncio
 import logging
+import os
 
 logging.basicConfig(
     level=logging.INFO,    
@@ -14,15 +15,17 @@ LOGGER.info("Live log streaming to telegram.")
 plugins = dict(root="plugins")
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Default to port 8000 if PORT is not set
     bot = bot(
         "Bot",
         bot_token=Config.BOT_TOKEN,
-        api_id=Config.api_id,
-        api_hash=Config.api_hash,
+        api_id=Config.API_ID,
+        api_hash=Config.API_HASH,
         sleep_threshold=120,
         plugins=plugins,
         workers=10,
     )
+
     async def main():
         await bot.start()
         bot_info = await bot.get_me()
