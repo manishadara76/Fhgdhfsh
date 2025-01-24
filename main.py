@@ -17,8 +17,8 @@ if __name__ == "__main__":
     bot = bot(
         "Bot",
         bot_token=Config.BOT_TOKEN,
-        api_id=Config.27536109,
-        api_hash=Config.b84d7d4dfa33904d36b85e1ead16bd63,
+        api_id=Config.api_id,
+        api_hash=Config.api_hash,
         sleep_threshold=120,
         plugins=plugins,
         workers=10,
