@@ -1,0 +1,11 @@
+services:
+- type: web
+  name: your-service-name
+  env: docker
+  plan: free
+  dockerfilePath: Dockerfile
+  buildCommand: docker build -t your-image-name .
+  startCommand: docker run -p 8000:8000 your-image-name
+  envVars:
+    - key: PORT
+      value: 8000
